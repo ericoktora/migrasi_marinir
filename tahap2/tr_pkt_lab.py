@@ -4,15 +4,16 @@ db_awal = mysql.connector.connect(
     host="localhost",
     user="eric",
     password="eric123",
-    database="db_slimskota"
+    database="db_slims"
 )
 
+# Koneksi ke database tujuan
 db_tujuan = mysql.connector.connect(
     host="localhost",
     user="eric",
     password="eric123",
-    database="db_slims_rskota_aio"
-)
+    database="db_slims_marinir_aio"
+),L..
 
 cursor_awal = db_awal.cursor(dictionary=True)
 cursor_tujuan = db_tujuan.cursor()
