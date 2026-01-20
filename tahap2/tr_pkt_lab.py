@@ -13,7 +13,7 @@ db_tujuan = mysql.connector.connect(
     user="eric",
     password="eric123",
     database="db_slims_marinir_aio"
-),L..
+)
 
 cursor_awal = db_awal.cursor(dictionary=True)
 cursor_tujuan = db_tujuan.cursor()
