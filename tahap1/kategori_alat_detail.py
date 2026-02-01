@@ -18,7 +18,7 @@ cursor_awal = db_awal.cursor(dictionary=True)
 cursor_tujuan = db_tujuan.cursor()
 
 cursor_awal.execute("""
-                    SELECT kad.*, kl.kode_lis as kode_lis2 FROM kategori_alat_detail kad
+                    SELECT kad.*, kl.kd_lis as kode_lis2 FROM kategori_alat_detail kad
                     JOIN kode_lab kl ON kad.id_kode_lab = kl.id_kode_lab
                 
                     """)
