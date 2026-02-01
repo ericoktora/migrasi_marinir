@@ -17,13 +17,17 @@ db_tujuan = mysql.connector.connect(
 cursor_awal = db_awal.cursor(dictionary=True)
 cursor_tujuan = db_tujuan.cursor()
 
-cursor_awal.execute("SELECT * FROM kategori_alat_detail")
+cursor_awal.execute("""
+                    SELECT kad.*, kl.kode_lis as kode_lis2 FROM kategori_alat_detail kad
+                    JOIN kode_lab kl ON kad.id_kode_lab = kl.id_kode_lab
+                
+                    """)
 data_awal = cursor_awal.fetchall()
 
 for row in data_awal:
     try:
         row.update({
-            'alias': row.get('kode_lis')
+            'alias': row.get('kode_lis2')
 
         })
         
