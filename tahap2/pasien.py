@@ -24,12 +24,12 @@ data_awal = cursor_awal.fetchall()
 for row in data_awal:
     try:
         # Tambahkan kolom baru di tujuan yang tidak ada di awal
-        # row.update({
-        #     'alamat2': None,
-        #     'alamat3': None,
-        #     'alamat4': None,
-        #     'email': None,
-        # })
+        row.update({
+            'alamat2': None,
+            'alamat3': None,
+            'alamat4': None,
+            'email': None,
+        })
 
         query = """
             INSERT INTO pasien (

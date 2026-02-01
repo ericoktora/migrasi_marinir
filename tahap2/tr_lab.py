@@ -74,7 +74,7 @@ query = """
 """
 
 # === EKSEKUSI BATCH INSERT ===
-batch_size = 5000
+batch_size = 10000
 inserted = 0
 batch_num = 0
 
