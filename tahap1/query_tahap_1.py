@@ -55,9 +55,8 @@ try:
         WHERE kl.id_kode_lab = pld.id_kode_lab
     """)
 
-    cursor.execute("UPDATE kode_lab SET tipe_hasil = 'Nar' WHERE kode_his='GDT'")
 
-    cursor.execute("UPDATE asal_rujukan SET nama = 'RS TJOKRODIPO' WHERE id = 1")
+    cursor.execute("UPDATE asal_rujukan SET nama = 'RS MARINIR' WHERE id = 1")
 
     
     
