@@ -23,7 +23,15 @@ cursor_tujuan = db_tujuan.cursor(dictionary=True)
 print("=== MULAI MIGRASI DATA transaksi_lab ===")
 
 # === AMBIL DATA DARI DATABASE SUMBER ===
-cursor_awal.execute("SELECT * FROM transaksi_lab")
+cursor_awal.execute("""
+                    SELECT *, 
+                    CASE 
+                    WHEN status_prioritas = 1 THEN 'C'
+                    ELSE ''
+                    END AS cito
+                    FROM transaksi_lab
+                    
+                    """)
 data_awal = cursor_awal.fetchall()
 total_rows = len(data_awal)
 print(f"Total data ditemukan: {total_rows}")
@@ -68,7 +76,7 @@ query = """
         %(klinik)s, %(nama_dokter_pengirim)s, %(alamat_dokter_pengirim)s, %(dokter_acc)s,
         %(id_dokter)s, %(sampel)s, %(jenis_sampel)s, %(catatan)s, %(status)s, %(jenis_permeriksaan)s,
         %(id_user)s, %(waktu_sampel)s, %(user_cekin)s, %(tgl_validasi)s, %(tgl_order)s,
-        %(tgl_print)s, %(proses)s, %(prioritas)s, %(status_prioritas)s, %(diagnose)s,
+        %(tgl_print)s, %(proses)s, %(cito)s, %(status_prioritas)s, %(diagnose)s,
         %(is_mcu)s, %(selesai)s, %(created_at)s, %(updated_at)s, %(kesan)s, %(saran)s
     )
 """
